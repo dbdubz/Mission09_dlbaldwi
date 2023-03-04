@@ -56,6 +56,10 @@ namespace Mission09_dlbaldwi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "Index",
+                    pattern: "page{pageNum}",
+                    defaults: new { Controller = "Home", Action = "Index" });
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
