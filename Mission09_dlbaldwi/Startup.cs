@@ -31,6 +31,7 @@ namespace Mission09_dlbaldwi
                 options.UseSqlite(Configuration.GetConnectionString("Books"));
             });
             services.AddScoped<BookRepoInt, BookRepoImp>();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,10 +59,21 @@ namespace Mission09_dlbaldwi
                 endpoints.MapControllerRoute(
                     name: "Index",
                     pattern: "page{pageNum}",
+                    defaults: new { Controller = "Home", Action = "Index", pageNum = "" });
+                endpoints.MapControllerRoute(
+                    name: "CategoryPage",
+                    pattern: "{category}/page{pageNum}",
+                    defaults: new { Controller = "Home", Action = "Index" });
+                endpoints.MapControllerRoute(
+                    name: "CategoryPage",
+                    pattern: "{category}",
                     defaults: new { Controller = "Home", Action = "Index" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }
