@@ -2,4 +2,34 @@
 @model Mission09_dlbaldwi.Pages.CartModel
 @{
 }
-<h1>Hi</h1>
+
+<h1>Your Cart</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var b in Model.Cart.Books)
+        {
+            <tr>
+                <td>@b.Book.Title</td>
+                <td>@b.Quantity</td>
+                <td>@b.Book.Price.ToString("c")</td>
+                <td>@((b.Quantity * b.Book.Price).ToString("c"))</td>
+            </tr>
+        } 
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>@Model.Cart.CalcTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+<a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>

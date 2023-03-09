@@ -27,6 +27,12 @@ namespace Mission09_dlbaldwi.Models
                 line.Quantity += quantity;
             }
         }
+
+        public double CalcTotal()
+        {
+            double total = Books.Sum(x => x.Quantity * x.Book.Price);
+            return total;
+        }
     }
 
     public class LineItem

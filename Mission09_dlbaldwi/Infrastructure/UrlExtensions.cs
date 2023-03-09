@@ -1,0 +1,14 @@
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Mission09_dlbaldwi.Infrastructure
+{
+    public static class UrlExtensions
+    {
+        public static string PathAndQuery(this HttpRequest req) =>
+            req.QueryString.HasValue ? $"{req.Path}{req.QueryString}" : req.Path.ToString();
+    }
+}
