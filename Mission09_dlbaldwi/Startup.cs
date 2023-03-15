@@ -57,6 +57,12 @@ namespace Mission09_dlbaldwi
 
             app.UseAuthorization();
 
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-XSS-Protections", "1");
+                await next();
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
