@@ -13,9 +13,9 @@ namespace Mission09_dlbaldwi.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private BookRepoInt _repo;
+        private IBookRepo _repo;
 
-        public HomeController(ILogger<HomeController> logger, BookRepoInt repo)
+        public HomeController(ILogger<HomeController> logger, IBookRepo repo)
         {
             _logger = logger;
             _repo = repo;
@@ -24,7 +24,7 @@ namespace Mission09_dlbaldwi.Controllers
         public IActionResult Index(string category, int pageNum = 1)
         {
             int pageSize = 10;
-            var books = new BooksViewModel
+            var books = new BooksViewModel()
             {
                 Books = _repo.Books
                     .Where(b => b.Category == category || category == null)

@@ -1,0 +1,15 @@
+﻿@page
+@model Mission09_dlbaldwi.Pages.OrderConfirmationModel
+@{
+    var checkout = Model.Purchase.Checkouts.Last();
+}
+
+<h3>Thanks for your order, @checkout.Name</h3>
+<br />
+<h5>Your total: @checkout.Lines.Sum(x => x.Quantity * x.Book.Price).ToString("c")</h5>
+<br />
+<p>What you bought:</p>
+@foreach (var line in checkout.Lines.AsEnumerable())
+{
+    <p>@line.Book.Title (@line.Quantity @@ @line.Book.Price.ToString("c")) = @((line.Quantity *  line.Book.Price).ToString("c"))</p>
+}

@@ -11,27 +11,30 @@ namespace Mission09_dlbaldwi.Pages
 {
     public class CartModel : PageModel
     {
-        private BookRepoInt repo { get; set; }
-        public CartModel(BookRepoInt temp)
+        private IBookRepo repo { get; set; }
+        public CartModel(IBookRepo temp, Cart c)
         {
             repo = temp;
+            Cart = c;
         }
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
 
         public void OnGet(string returnUrl)
         {
-            Cart = HttpContext.Session.GetJSON<Cart>("cart") ?? new Cart();
             ReturnUrl = returnUrl ?? "/";
         }
         public IActionResult OnPost(Book book, string returnUrl)
         {
             Book Book = repo.Books.FirstOrDefault(b => b.BookId == book.BookId);
 
-            Cart = HttpContext.Session.GetJSON<Cart>("cart") ?? new Cart();
             Cart.AddBook(Book, 1);
 
-            HttpContext.Session.SetJSON("cart", Cart);
+            return RedirectToPage(new { ReturnUrl = returnUrl });
+        }
+        public IActionResult OnPostRemove(int bookId, string returnUrl)
+        {
+            Cart.RemoveBook(Cart.Books.First(b => b.Book.BookId == bookId).Book);
 
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }

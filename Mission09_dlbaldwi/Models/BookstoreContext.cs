@@ -20,5 +20,6 @@ namespace Mission09_dlbaldwi.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Checkout> Purchases { get; set; }
     }
 }

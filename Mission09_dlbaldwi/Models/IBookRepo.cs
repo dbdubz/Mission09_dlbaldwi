@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Mission09_dlbaldwi.Models
 {
-    public interface BookRepoInt
+    public interface IBookRepo
     {
         IQueryable<Book> Books { get; }
     }

@@ -9,9 +9,9 @@ namespace Mission09_dlbaldwi.Components
 {
     public class CategoriesViewComponent : ViewComponent
     {
-        private BookRepoInt repo { get; set; }
+        private IBookRepo repo { get; set; }
 
-        public CategoriesViewComponent(BookRepoInt temp) => repo = temp;
+        public CategoriesViewComponent(IBookRepo temp) => repo = temp;
 
         public IViewComponentResult Invoke()
         {

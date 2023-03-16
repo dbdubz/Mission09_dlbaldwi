@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Mission09_dlbaldwi.Models
 {
-    public class BookRepoImp : BookRepoInt
+    public class EFBookRepo : IBookRepo
     {
         private BookstoreContext context { get; set; }
-        public BookRepoImp(BookstoreContext c) => context = c;
+        public EFBookRepo(BookstoreContext c) => context = c;
         public IQueryable<Book> Books => context.Books;
     }
 }
