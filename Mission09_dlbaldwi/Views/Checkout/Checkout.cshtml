@@ -11,32 +11,39 @@
     <div class="form-group">
         <label asp-for="Name">Name*</label>
         <input asp-for="Name" type="text" class="form-control" placeholder="John Doe" />
+        <span asp-validation-for="Name" style="color: red;"></span>
     </div>
 
     <h4>Address</h4>
     <div class="form-group">
         <label asp-for="AddressLine1">Address Line 1*</label>
         <input asp-for="AddressLine1" class="form-control" placeholder="123 Sunny Lane" />
+        <span asp-validation-for="AddressLine1" style="color: red;"></span>
     </div>
     <div class="form-group">
         <label asp-for="AddressLine2">Address Line 2</label>
         <input asp-for="AddressLine2" class="form-control" placeholder="Apt 123" />
+        <span asp-validation-for="AddressLine2" style="color: red;"></span>
     </div>
     <div class="form-group">
         <label asp-for="City">City*</label>
         <input asp-for="City" class="form-control" placeholder="My City" />
+        <span asp-validation-for="City" style="color: red;"></span>
     </div>
     <div class="form-group">
         <label asp-for="State">State*</label>
         <input asp-for="State" class="form-control" placeholder="My State" />
+        <span asp-validation-for="State" style="color: red;"></span>
     </div>
     <div class="form-group">
         <label asp-for="Zipcode">Zip*</label>
         <input asp-for="Zipcode" class="form-control" placeholder="12345" />
+        <span asp-validation-for="Zipcode" style="color: red;"></span>
     </div>
     <div class="form-group">
         <label asp-for="Country">Country*</label>
         <input asp-for="Country" class="form-control" placeholder="USA" />
+        <span asp-validation-for="Country" style="color: red;"></span>
     </div>
     <div class="float-end">
         <button type="submit" class="btn btn-primary" value="Complete">Purchase</button>

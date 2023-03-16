@@ -42,10 +42,8 @@ namespace Mission09_dlbaldwi.Controllers
                 cart.ClearCart();
                 return RedirectToPage("/OrderConfirmation");
             }
-            else
-            {
-                return View();
-            }
+
+            return View(checkout);
         }
     }
 }
