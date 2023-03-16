@@ -5,36 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Mission09_dlbaldwi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <!--<link rel="stylesheet" href="~/css/site.css" />-->
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <!--No container, text-light to have light color against dark background-->
-            <div class="text-light p-2">
-                <a class="navbar-brand ml-2" asp-area="" asp-controller="Home" asp-action="Index" asp-route-category="" asp-route-pageNum="">Mission09_dlbaldwi</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!--<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse row m-1 p-1">
-                    <ul class="navbar-nav flex-grow-1 col-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>-->
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <a class="col navbar-brand text-white" asp-controller="Home" asp-action="Index">Mission09_dlbaldwi</a>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
             </div>
-        </nav>
-    </header>
-    <div class="container row m-1 p-1">
-        <div id="container categories" class="col-3">
-            <vc:categories></vc:categories>
         </div>
-        <div class="container col-9">
+    </div>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            <vc:categories />
+        </div>
+        <div class="col-9">
             @RenderBody()
         </div>
     </div>
